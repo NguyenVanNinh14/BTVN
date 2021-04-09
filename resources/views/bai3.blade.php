@@ -8,12 +8,16 @@
 
 	    <div class="col-md-8 col-md-offset-2">
         <div class="form-group">
-    		        <label for="search">Tìm kiếm<span class="require">*</span></label>
-    		        <input type="text" class="form-control" name="search" /><br>
+    		        <form action="{{route('search')}" method="get">
+                    <label for="search">Tìm kiếm<span class="require">*</span></label>
+    		        <input type="text" class="form-control" name="key" /><br>
                     <input type="submit" value = "Search">
+                    </form>
 
 
 		</div>
+
+        @yield('content')
 
 	</div>
 </div>

@@ -19,5 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/bai3',[Bai3Controller::class, 'bai3']);
-Route::post('/bai3',[Bai3Controller::class, 'search']);
+Route::get('/search',[Bai3Controller::class, 'search']);
 
