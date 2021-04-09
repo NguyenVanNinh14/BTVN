@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $bai3= DB::table('bai3')->where('content', 'like', '%T%')->get();
     return view('welcome');
 });
