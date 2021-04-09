@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Bai3Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $bai3= DB::table('bai3')->where('content', 'like', '%T%')->get();
     return view('welcome');
 });
+
+Route::get('/bai3',[Bai3Controller::class, 'bai3']);
+Route::post('/bai3',[Bai3Controller::class, 'search']);
+
