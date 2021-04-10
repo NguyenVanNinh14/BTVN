@@ -9,6 +9,7 @@
 	    <div class="col-md-8 col-md-offset-2">
         <div class="form-group">
     		        <form action="{{route('search')}" method="get">
+                    @csrf
                     <label for="search">Tìm kiếm<span class="require">*</span></label>
     		        <input type="text" class="form-control" name="key" /><br>
                     <input type="submit" value = "Search">
