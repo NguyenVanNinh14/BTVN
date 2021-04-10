@@ -1,9 +1,9 @@
 @extends('bai3')
 @section('content')
-            @foreach($bai3 as $search)
+            @foreach($searchs as $search)
                 <table>
-                   <input type="text" name ="title" value ="{{search->title}}"><br>
-                   <input type="text" name = "content" value = "{{search->content}">
+                   {{search->title}}"<br>
+                    {{search->content}}>
                 </table>
             @endforeach
 

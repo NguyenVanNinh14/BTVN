@@ -12,7 +12,7 @@ class Bai3Controller extends Controller
     }
     public function search(Request $request){
 
-        $search = DB::table('bai3')->where('title', 'like', '%.$request->key.%')->orWhere('content', 'like' ,'%.$request->key.%')->get();
-        return view('search', compact('search'));
+        $searchs = DB::table('bai3')->where('title', 'like', '%.$request->key.%')->orWhere('content', 'like' ,'%.$request->key.%')->get();
+        return view('search', compact('searchs'));
     }
 }
