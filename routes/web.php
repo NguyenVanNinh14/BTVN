@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Models\Posts;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,33 +20,33 @@ Route::get('/', function () {
 
 
     //them
-    $post = new Posts();
-    $post->title = 'huy';
-    $post->slug = 'huy';
-    $post->content = 'huy';
-    $post ->save();
-    dd($post);
+    // $post = new Posts();
+    // $post->title = 'huy';
+    // $post->slug = 'huy';
+    // $post->content = 'huy';
+    // $post ->save();
+    // dd($post);
 
     //lay ra
     // lay ra het
-    $post = Posts::query()->get();
+    // $post = Posts::query()->get();
     //lay theo id
-    $user = DB::table('post')->whereIn('id', [2])->get();
-    dd($post);
+    // $user = DB::table('post')->whereIn('id', [2])->get();
+    // dd($post);
 
 
     //sua
-    $post = Posts::query()->find(1);
-    $post->title = 'hung';
-    $post->save();
-    dd($post);
+    // $post = Posts::query()->find(1);
+    // $post->title = 'hung';
+    // $post->save();
+    // dd($post);
 
     //xoa
     //xoa theo id
-    Posts::destroy([1]);
+    // Posts::destroy([1]);
     //xoa ko theo id
-    $post = Posts::query()->where('slug', 'ninh')->delete();
-    $post->save();
+    // $post = Posts::query()->where('slug', 'ninh')->delete();
+    // $post->save();
 
 
 
@@ -53,3 +54,15 @@ Route::get('/', function () {
 });
 Route::get('/home',[HomeController::class, 'index']);
 
+
+Route::get('/list',[PostController::class, 'index']);
+//them
+Route::get('/them',[PostController::class, 'create']);
+Route::post('/save',[PostController::class , 'save'])->name('save');
+
+//sua
+Route::get('/sua/{id}',[PostController::class, 'update']);
+Route::post('/save2',[PostController::class , 'save2'])->name('save2');
+
+//xoa
+Route::get('/xoa/{id}',[PostController::class, 'delete']);
