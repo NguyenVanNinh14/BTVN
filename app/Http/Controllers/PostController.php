@@ -26,7 +26,7 @@ class PostController extends Controller
         return redirect('list');
         }
 
-    // xóa
+    // sua
     public function update($id){
             $update = Posts::find($id)->toArray();
             return view('update', compact('update'));
@@ -40,7 +40,7 @@ class PostController extends Controller
             $post->save();
             return redirect('list');
             }
-
+    //xoa
     public function delete($id){
         Posts::find($id)->delete();
         return redirect('list');
