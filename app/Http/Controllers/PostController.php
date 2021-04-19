@@ -8,8 +8,8 @@ use App\Models\Posts;
 class PostController extends Controller
 {
     public function index(){
-        $list = Posts::all()->toArray();
-        return view('list')->with('list', $list);
+        $list = Posts::query()->paginate(1);
+        return view('list',compact('list'));
     }
 
     //them
@@ -18,6 +18,7 @@ class PostController extends Controller
     }
 
     public function save(Request $request){
+        // Posts::query()->create($request->only('title', 'slug', 'content'));
         $post = new Posts();
         $post->title = $request->title;
         $post->slug = $request->slug;
@@ -28,7 +29,8 @@ class PostController extends Controller
 
     // sua
     public function update($id){
-            $update = Posts::find($id)->toArray();
+            // $update = Posts::query()->findOrFail($id);
+            $update = Posts::find($id);
             return view('update', compact('update'));
         }
 
@@ -42,6 +44,7 @@ class PostController extends Controller
             }
     //xoa
     public function delete($id){
+        // Posts::destroy($id);
         Posts::find($id)->delete();
         return redirect('list');
         }

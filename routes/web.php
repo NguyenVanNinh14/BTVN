@@ -52,17 +52,19 @@ Route::get('/', function () {
 
     return view('welcome');
 });
+
+
 Route::get('/home',[HomeController::class, 'index']);
 
 
 Route::get('/list',[PostController::class, 'index']);
 //them
-Route::get('/them',[PostController::class, 'create']);
+Route::get('/create',[PostController::class, 'create'])->name('create');
 Route::post('/save',[PostController::class , 'save'])->name('save');
 
 //sua
-Route::get('/sua/{id}',[PostController::class, 'update']);
+Route::get('/edit/{id}',[PostController::class, 'update'])->name('edit');
 Route::post('/save2',[PostController::class , 'save2'])->name('save2');
 
 //xoa
-Route::get('/xoa/{id}',[PostController::class, 'delete']);
+Route::get('/delete/{id}',[PostController::class, 'delete'])->name('delete');
