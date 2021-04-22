@@ -22,6 +22,7 @@
             <th>Title</th>
             <th>Slug</th>
             <th>Content</th>
+            <th>Email Author</th>
             <th><a href="{{route('create')}}">Thêm</a></th>
         </tr>
     </thead>
@@ -33,6 +34,7 @@
             <td>{{$value->title}}</td>
             <td>{{$value->slug}}</td>
             <td>{{$value->content}}</td>
+            <td>{{$value->user->email}}</td>
             <td><a class="btn btn-warning" href="{{route('edit',$value['id'])}}">Sửa</a> |
                 <a onclick="return window.confirm('Bạn muốn xóa không');" class="btn btn-danger delete-post"  href="{{route('delete',$value['id'])}}">Xóa</a>
 

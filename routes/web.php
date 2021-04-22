@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Models\Posts;
+use App\Models\User;
 use App\Http\Controllers\PostController;
 
 /*
@@ -61,6 +62,7 @@ Route::get('/list',[PostController::class, 'index']);
 //them
 Route::get('/create',[PostController::class, 'create'])->name('create');
 Route::post('/save',[PostController::class , 'save'])->name('save');
+
 
 //sua
 Route::get('/edit/{id}',[PostController::class, 'update'])->name('edit');

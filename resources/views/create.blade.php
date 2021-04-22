@@ -35,6 +35,16 @@
     		        <textarea rows="5" class="form-control" name="content" ></textarea>
     		    </div>
 
+                <div class="form-group">
+    		        <label for="description">User_ID</label>
+    		        <textarea rows="5" class="form-control" name="user_id" ></textarea>
+    		    </div>
+
+                <div class="form-group">
+    		        <label for="description">Email Author</label>
+    		        <textarea rows="5" class="form-control" name="email_author" ></textarea>
+    		    </div>
+
     		    <div class="form-group">
     		        <button type="submit" class="btn btn-primary">
     		            Create

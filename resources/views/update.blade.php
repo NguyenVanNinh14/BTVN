@@ -39,6 +39,16 @@
     		        <input rows="5" class="form-control" name="content" value="{{$update->content}}" />
     		    </div>
 
+                <div class="form-group">
+    		        <label for="content">User_ID</label>
+    		        <input rows="5" class="form-control" name="content" value="{{$update->user_id}}" />
+    		    </div>
+
+                <div class="form-group">
+    		        <label for="content">Email Author</label>
+    		        <input rows="5" class="form-control" name="content" value="{{$update->email}}" />
+    		    </div>
+
     		    <div class="form-group">
     		        <button type="submit" class="btn btn-primary">
     		            Edit
