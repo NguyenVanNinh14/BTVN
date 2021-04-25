@@ -16,33 +16,33 @@
 	    <div class="col-md-8 col-md-offset-2">
 
     		<h1>Create post</h1>
-
-    		<form action="{{route('save')}}" method="POST">
+    		<form action="{{route('save')}}" method="POST" enctype = "multipart/form-data">
     			@csrf
 
+                <div class="form-group has-error">
+    		        <label>Key Post</label>
+    		        <input type="text" class="form-control" name="key_post" />
+                    @error('key_post')<div class="alert alert-danger">{{ $message }}</div>@enderror
+    		    </div>
+
     		    <div class="form-group has-error">
-    		        <label for="slug">Title <span class="require">*</span></label>
+    		        <label>Title</label>
     		        <input type="text" class="form-control" name="title" />
+                    @error('title')<div class="alert alert-danger">{{ $message }}</div>@enderror
     		    </div>
 
     		    <div class="form-group">
-    		        <label for="title">Slug <span class="require">*</span></label>
+    		        <label>Slug</label>
     		        <input type="text" class="form-control" name="slug" />
+                    @error('slug')<div class = "alert alert-danger">{{ $message }}</div>@enderror
+
     		    </div>
 
     		    <div class="form-group">
-    		        <label for="description">Content</label>
+    		        <label>Content</label>
     		        <textarea rows="5" class="form-control" name="content" ></textarea>
-    		    </div>
+                    @error('content')<div class = "alert alert-danger">{{ $message }}</div>@enderror
 
-                <div class="form-group">
-    		        <label for="description">User_ID</label>
-    		        <textarea rows="5" class="form-control" name="user_id" ></textarea>
-    		    </div>
-
-                <div class="form-group">
-    		        <label for="description">Email Author</label>
-    		        <textarea rows="5" class="form-control" name="email_author" ></textarea>
     		    </div>
 
     		    <div class="form-group">
@@ -52,6 +52,7 @@
     		    </div>
 
     		</form>
+
 		</div>
 
 	</div>

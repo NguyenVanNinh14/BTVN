@@ -15,7 +15,7 @@
 
 	    <div class="col-md-8 col-md-offset-2">
 
-    		<h1>Create post</h1>
+    		<h1>Update post</h1>
 
     		<form action="{{route('save2')}}" method="POST">
     			@csrf
@@ -24,29 +24,28 @@
     		        <input type="hidden" class="form-control" name="id" value="{{$update->id}}" />
     		    </div>
 
+                <div class="form-group has-error">
+    		        <label for="key_post">Key post <span class="require">*</span></label>
+    		        <input type="text" class="form-control" name="key_post" value="{{$update->key_post}}" />
+                    @error('key_post')<div class="alert alert-danger">{{ $message }}</div>@enderror
+    		    </div>
+
     		    <div class="form-group has-error">
-    		        <label for="slug">Title <span class="require">*</span></label>
+    		        <label for="title">Title <span class="require">*</span></label>
     		        <input type="text" class="form-control" name="title" value="{{$update->title}}" />
+                    @error('title')<div class="alert alert-danger">{{ $message }}</div>@enderror
     		    </div>
 
     		    <div class="form-group">
-    		        <label for="title">Slug <span class="require">*</span></label>
+    		        <label for="slug">Slug <span class="require">*</span></label>
     		        <input type="text" class="form-control" name="slug"  value="{{$update->slug}}" />
+                    @error('slug')<div class = "alert alert-danger">{{ $message }}</div>@enderror
     		    </div>
 
     		    <div class="form-group">
     		        <label for="content">Content</label>
     		        <input rows="5" class="form-control" name="content" value="{{$update->content}}" />
-    		    </div>
-
-                <div class="form-group">
-    		        <label for="content">User_ID</label>
-    		        <input rows="5" class="form-control" name="content" value="{{$update->user_id}}" />
-    		    </div>
-
-                <div class="form-group">
-    		        <label for="content">Email Author</label>
-    		        <input rows="5" class="form-control" name="content" value="{{$update->email}}" />
+                    @error('content')<div class = "alert alert-danger">{{ $message }}</div>@enderror
     		    </div>
 
     		    <div class="form-group">

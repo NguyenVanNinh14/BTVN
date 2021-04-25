@@ -16,6 +16,7 @@ class Posts extends Model
         'title',
         'slug',
         'content',
+        'key_post',
     ];
 
     public function user(){

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Posts;
 use App\Models\User;
+use App\Http\Requests\RequestPost;
 
 class PostController extends Controller
 {
@@ -18,15 +19,13 @@ class PostController extends Controller
         return view('create');
     }
 
-    public function save(Request $request){
+    public function save(RequestPost $request){
         // Posts::query()->create($request->only('title', 'slug', 'content'));
         $post = new Posts();
-        $user = new User();
+        $post->key_post = $request->key_post;
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->content = $request->content;
-        $post->user_id = $request->user_id;
-        $post->user()->email = $request->email;
         $post->save();
         return redirect('list');
         }
@@ -38,13 +37,12 @@ class PostController extends Controller
             return view('update', compact('update'));
         }
 
-        public function save2(Request $request){
+        public function save2(RequestPost $request){
             $post =  Posts::find($request->id);
+            $post->key_post = $request->key_post;
             $post->title = $request->title;
             $post->slug = $request->slug;
             $post->content = $request->content;
-            $post->user_id = $request->user_id;
-            $post->user()->email = $request->email;
             $post->save();
             return redirect('list');
             }
