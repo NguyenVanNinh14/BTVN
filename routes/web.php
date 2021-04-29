@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ListController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/login', ([AuthController::class, 'showlogin']))->middleware('guest')->name('login');
+Route::post('/checklogin', ([AuthController::class, 'checklogin']))->name('checklogin');
+
+Route::get('/list', ([ListController::class, 'list']))->middleware('auth')->name('list');
+
+Route::get('/logout', ([ListController::class, 'logout']))->middleware('auth')->name('logout');
+
